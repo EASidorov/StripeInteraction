@@ -27,7 +27,6 @@ class DetailsView(generic.DetailView):
 
 def buy(request, pk):
     item = Item.objects.get(pk=pk)
-    print(item)
     session = stripe.checkout.Session.create(success_url="https://www.reddit.com/r/funny/",
                                        cancel_url="https://www.reddit.com/r/sadmemes/",
                                        line_items=[{
@@ -43,7 +42,6 @@ def buy(request, pk):
                                                 }],
                                        mode="payment",
                                        )
-    print('test')
     return JsonResponse({'session_id': session.id})
 
 def buy_order(request, pk):
