@@ -1,0 +1,16 @@
+{% extends "api/base.html" %}
+
+{% block title %}Video Security Systems{% endblock %}
+{% block head %}
+{% endblock %}
+{% block content %}
+<div name="items_table">
+    {% for item in items %}
+    <p>{{ item.name }} за {{ item.price }} {{ item.currency }}</p><a href="{% url 'details' item.id %}">Купить</a>
+    {% endfor %}
+</div>
+    </div>
+    <div class="col-8"></div>
+</div>
+</div>
+{% endblock %}
